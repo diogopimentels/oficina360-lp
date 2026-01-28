@@ -50,7 +50,7 @@ const Hero = () => {
                 </div>
 
                 {/* Right Visual - Animated Tech Interface */}
-                <div className="relative flex justify-center md:justify-end items-center mb-10 md:mb-0">
+                <div className="hidden md:flex relative justify-center md:justify-end items-center md:mb-0">
                     <div className="relative w-full max-w-sm md:max-w-md aspect-square">
                         {/* Abstract Glow Background */}
                         <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full" />

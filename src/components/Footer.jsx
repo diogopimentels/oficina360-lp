@@ -2,25 +2,60 @@ import React from 'react';
 import logo from '../assets/logo.png';
 
 const Footer = () => {
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <footer className="bg-white py-12 px-6 border-t border-border text-center md:text-left">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <footer className="bg-gray-900 text-white py-16 px-6 border-t border-gray-800">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
 
-                <div className="flex flex-col gap-2 items-center md:items-start">
-                    <img src={logo} alt="Oficina 360" className="h-10 w-auto object-contain mb-2" />
-                    <p className="text-text-muted text-sm">Tecnologia e informação para o mecânico moderno.</p>
+                {/* Brand Column */}
+                <div className="col-span-1 md:col-span-2 space-y-4">
+                    <img src={logo} alt="Oficina 360" className="h-10 w-auto object-contain brightness-0 invert opacity-90" />
+                    <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        O sistema definitivo para oficinas mecânicas. Informação técnica, esquemas elétricos e manuais de serviço em um só lugar.
+                    </p>
                 </div>
 
-                <div className="text-text-muted text-sm">
-                    &copy; {new Date().getFullYear()} Oficina 360. Todos os direitos reservados.
+                {/* Quick Links */}
+                <div className="space-y-4">
+                    <h4 className="text-lg font-bold text-white uppercase tracking-wider">Navegação</h4>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                        <li><button onClick={() => scrollToSection('sistemas')} className="hover:text-primary transition-colors">Sistemas Inclusos</button></li>
+                        <li><button onClick={() => scrollToSection('beneficios')} className="hover:text-primary transition-colors">Vantagens</button></li>
+                        <li><button onClick={() => scrollToSection('demonstracao')} className="hover:text-primary transition-colors">Demonstração</button></li>
+                        <li><button onClick={() => scrollToSection('faq')} className="hover:text-primary transition-colors">Perguntas Frequentes</button></li>
+                    </ul>
                 </div>
 
-                <div className="flex gap-6">
-                    <a href="#" className="text-text-muted hover:text-primary transition-colors font-medium">Instagram</a>
-                    <a href="#" className="text-text-muted hover:text-primary transition-colors font-medium">Facebook</a>
-                    <a href="#" className="text-text-muted hover:text-primary transition-colors font-medium">YouTube</a>
+                {/* Contact/Action */}
+                <div className="space-y-4">
+                    <h4 className="text-lg font-bold text-white uppercase tracking-wider">Contato</h4>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                        <li>
+                            <a href="https://wa.link/6op4t8" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                                Falar no WhatsApp
+                            </a>
+                        </li>
+                        <li className="pt-2">
+                            <a
+                                href="#comprar"
+                                onClick={(e) => { e.preventDefault(); scrollToSection('comprar'); }}
+                                className="inline-block px-6 py-2 bg-primary hover:bg-secondary text-white font-bold rounded-md transition-all text-xs uppercase tracking-wide"
+                            >
+                                Comprar Agora
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+            </div>
 
+            <div className="mt-16 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+                <p>&copy; {new Date().getFullYear()} Oficina 360. Todos os direitos reservados.</p>
             </div>
         </footer>
     );

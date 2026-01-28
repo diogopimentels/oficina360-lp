@@ -42,10 +42,9 @@ const Navbar = () => {
                 <div className="hidden md:block">
                     <button
                         onClick={() => scrollToSection('comprar')}
-                        className="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-5 py-2.5 rounded-lg font-bold text-sm transition-all transform hover:scale-105 shadow-md"
+                        className="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-md hover:shadow-lg uppercase tracking-wide"
                     >
-                        <ShoppingCart size={18} />
-                        COMPRAR AGORA
+                        Comprar Agora
                     </button>
                 </div>
 
@@ -66,10 +65,9 @@ const Navbar = () => {
                     <button onClick={() => scrollToSection('faq')} className="text-left text-lg font-medium text-text-main hover:text-primary">FAQ</button>
                     <button
                         onClick={() => scrollToSection('comprar')}
-                        className="mt-2 w-full bg-primary text-white py-3 rounded-lg font-bold flex justify-center items-center gap-2"
+                        className="mt-4 w-full bg-primary text-white py-4 rounded-lg font-bold text-base shadow-md uppercase tracking-wide"
                     >
-                        <ShoppingCart size={20} />
-                        QUERO COMPRAR
+                        Quero Comprar
                     </button>
                 </div>
             )}

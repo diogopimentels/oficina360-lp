@@ -18,7 +18,7 @@ const Hero = () => {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.1] mb-6 tracking-tight text-text-main uppercase">
-                        TODOS OS MANUAIS TÉCNICOS QUE SUA OFICINA PRECISA EM UM <span className="text-primary">ÚNICO SISTEMA</span>
+                        Todos os manuais da sua oficina em um <span className="text-primary">único sistema</span>
                     </h1>
 
                     <p className="text-text-muted text-lg md:text-xl mb-8 leading-relaxed max-w-lg mx-auto md:mx-0 font-light">

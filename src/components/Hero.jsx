@@ -84,16 +84,6 @@ const Hero = () => {
                                     ))}
                                 </div>
 
-                                {/* "Success" Notification Pop-up */}
-                                <div className="absolute bottom-6 left-6 right-6 bg-white border border-green-100 rounded-lg p-4 flex items-center gap-3 shadow-lg animate-bounce [animation-duration:3s]">
-                                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                                        <CheckCircle2 size={16} strokeWidth={3} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xs font-bold text-gray-800">Manual Encontrado</div>
-                                        <div className="text-[10px] text-gray-500">Esquema Elétrico - Injeção</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

@@ -197,33 +197,38 @@ const SystemScreenshots = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                         </button>
 
-                        {/* Nav Prev */}
-                        <button
-                            className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 text-white/90 bg-black/20 hover:bg-white/20 p-3 rounded-full transition-colors backdrop-blur-sm"
-                            onClick={(e) => navigateLightbox('prev', e)}
-                        >
-                            <ChevronLeft size={48} />
-                        </button>
+                        <div className="relative w-full flex flex-col items-center">
+                            <img
+                                src={selectedImage.src}
+                                alt={selectedImage.label}
+                                className="w-full h-auto max-h-[75vh] object-contain rounded-lg shadow-2xl"
+                                onClick={(e) => e.stopPropagation()}
+                            />
 
-                        <img
-                            src={selectedImage.src}
-                            alt={selectedImage.label}
-                            className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
-                            onClick={(e) => e.stopPropagation()}
-                        />
+                            {/* Controls & Caption Row */}
+                            <div className="w-full flex items-center justify-between mt-6 px-2 gap-4" onClick={(e) => e.stopPropagation()}>
+                                {/* Nav Prev */}
+                                <button
+                                    className="text-white/90 hover:text-white p-3 rounded-full hover:bg-white/10 transition-colors"
+                                    onClick={(e) => navigateLightbox('prev', e)}
+                                >
+                                    <ChevronLeft size={40} />
+                                </button>
 
-                        {/* Nav Next */}
-                        <button
-                            className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 text-white/90 bg-black/20 hover:bg-white/20 p-3 rounded-full transition-colors backdrop-blur-sm"
-                            onClick={(e) => navigateLightbox('next', e)}
-                        >
-                            <ChevronRight size={48} />
-                        </button>
+                                <div className="flex-1 text-white font-medium text-lg md:text-xl text-center">
+                                    {selectedImage.label}
+                                    <div className="text-sm text-gray-400 font-normal mt-1">
+                                        {selectedImageIndex + 1} de {screenshots.length}
+                                    </div>
+                                </div>
 
-                        <div className="mt-6 text-white font-medium text-lg md:text-xl text-center px-4" onClick={(e) => e.stopPropagation()}>
-                            {selectedImage.label}
-                            <div className="text-sm text-gray-400 font-normal mt-1">
-                                {selectedImageIndex + 1} de {screenshots.length}
+                                {/* Nav Next */}
+                                <button
+                                    className="text-white/90 hover:text-white p-3 rounded-full hover:bg-white/10 transition-colors"
+                                    onClick={(e) => navigateLightbox('next', e)}
+                                >
+                                    <ChevronRight size={40} />
+                                </button>
                             </div>
                         </div>
                     </div>

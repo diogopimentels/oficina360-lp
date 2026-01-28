@@ -39,7 +39,7 @@ const AboutSystem = () => {
                         </h3>
 
                         <p className="text-text-muted mb-8 leading-relaxed">
-                            Reunimos diferentes bases de informação técnica automotiva em uma única interface simples de usar. Você pesquisa uma vez e encontra o que precisa sem ficar trocando de plataforma.
+                            Reunimos diferentes bases de informação técnica automotiva em uma única interface simples de usar. Você pesquisa uma vez e encontra o que precisa para <strong>Linha Leve, Pesada (Diesel) e Máquinas Agrícolas</strong>.
                         </p>
 
                         <ul className="space-y-4">

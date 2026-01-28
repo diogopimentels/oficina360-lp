@@ -29,7 +29,7 @@ const BuySection = () => {
                     </div>
 
                     <a
-                        href="#"
+                        href="https://wa.link/6op4t8"
                         className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary hover:bg-secondary text-white font-bold text-base rounded-lg shadow-md hover:shadow-lg transition-all"
                     >
                         Falar no WhatsApp e ver o sistema

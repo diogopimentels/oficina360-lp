@@ -30,7 +30,7 @@ const Navbar = () => {
                     : 'bg-gray-900 py-5'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
                 {/* Logo - White version */}
                 <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                     <img
@@ -38,7 +38,15 @@ const Navbar = () => {
                         alt="Oficina 360"
                         className="h-10 md:h-12 w-auto object-contain brightness-0 invert opacity-95 hover:opacity-100 transition-opacity"
                     />
+                    <span className="hidden md:block font-bold text-xl text-white tracking-wide ml-2 uppercase">
+                        Oficina 360
+                    </span>
                 </div>
+
+                {/* Mobile Brand Name (Centered) */}
+                <span className="md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-lg text-white tracking-wide whitespace-nowrap uppercase">
+                    Oficina 360
+                </span>
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex items-center gap-8">

@@ -1,6 +1,9 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import bannerImage from '../assets/bannerheader.png';
+import { CheckCircle2 } from 'lucide-react';
+import simploLogo from '../assets/simplo.png';
+import dicatecLogo from '../assets/dicatec.png';
+import mecanicaLogo from '../assets/mecanica2000.png';
+import doutorieLogo from '../assets/doutorie.png';
 
 const Hero = () => {
     return (
@@ -46,17 +49,54 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Right Visual - Banner Image with Backlight */}
-                <div className="relative flex justify-center md:justify-end items-center">
-                    {/* Elegant Background Decoration */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary/10 rounded-full blur-2xl -z-10" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-secondary/5 rounded-full blur-xl -z-10" />
+                {/* Right Visual - Animated Tech Interface */}
+                <div className="relative flex justify-center md:justify-end items-center mb-10 md:mb-0">
+                    <div className="relative w-full max-w-sm md:max-w-md aspect-square">
+                        {/* Abstract Glow Background */}
+                        <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full" />
 
-                    <img
-                        src={bannerImage}
-                        alt="Interface do Sistema Oficina 360"
-                        className="w-full max-w-sm object-contain drop-shadow-xl z-10 rounded-lg"
-                    />
+                        {/* Main Floating Card - Clean White Theme */}
+                        <div className="absolute inset-0 z-10 bg-white rounded-2xl border border-gray-100 shadow-2xl overflow-hidden flex flex-col animate-float">
+                            {/* Window Header */}
+                            <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-2 bg-gray-50">
+                                <div className="flex gap-1.5">
+                                    <div className="w-3 h-3 rounded-full bg-red-400" />
+                                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                                    <div className="w-3 h-3 rounded-full bg-green-400" />
+                                </div>
+                                <div className="text-[10px] text-gray-400 font-mono ml-2 uppercase tracking-wide">Sistema Oficina 360</div>
+                            </div>
+
+                            {/* Window Body - Simulated Interface */}
+                            <div className="p-6 flex-1 flex flex-col gap-4 relative bg-slate-50/50">
+                                {/* Search Bar Simulation */}
+                                <div className="bg-white rounded-lg p-3 border border-gray-100 flex items-center gap-3 shadow-sm">
+                                    <div className="w-4 h-4 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+                                    <div className="h-2 w-32 bg-gray-200 rounded animate-pulse" />
+                                </div>
+
+                                {/* Results Grid Simulation */}
+                                <div className="grid grid-cols-2 gap-3 mt-2">
+                                    {[dicatecLogo, simploLogo, mecanicaLogo, doutorieLogo].map((logo, i) => (
+                                        <div key={i} className="bg-white rounded-lg p-4 border border-gray-100 flex flex-col gap-2 hover:border-primary/20 transition-colors shadow-sm items-center justify-center h-24">
+                                            <img src={logo} alt="System Logo" className="h-full w-full object-contain" />
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* "Success" Notification Pop-up */}
+                                <div className="absolute bottom-6 left-6 right-6 bg-white border border-green-100 rounded-lg p-4 flex items-center gap-3 shadow-lg animate-bounce [animation-duration:3s]">
+                                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                        <CheckCircle2 size={16} strokeWidth={3} />
+                                    </div>
+                                    <div>
+                                        <div className="text-xs font-bold text-gray-800">Manual Encontrado</div>
+                                        <div className="text-[10px] text-gray-500">Esquema Elétrico - Injeção</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section >

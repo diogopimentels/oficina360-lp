@@ -26,8 +26,8 @@ const Benefits = () => {
         },
         {
             icon: <MessageCircle size={32} strokeWidth={1.5} />,
-            title: "Suporte humano",
-            description: "Fale com técnicos reais no WhatsApp, não com robôs.",
+            title: "Suporte garantido",
+            description: "Estamos prontos para te atender de domingo a domingo.",
             color: "text-pink-500",
             bg: "bg-pink-50"
         }
@@ -46,7 +46,7 @@ const Benefits = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (
                         <div
                             key={index}

@@ -44,7 +44,7 @@ const Hero = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <CheckCircle2 size={18} className="text-primary" />
-                            <span>Pendrive de 64 GB incluso</span>
+                            <span>Pendrive 64 GB incluso</span>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ const Hero = () => {
                         <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full" />
 
                         {/* Main Floating Card - Clean White Theme */}
-                        <div className="absolute inset-0 z-10 bg-white rounded-2xl border border-gray-100 shadow-2xl overflow-hidden flex flex-col animate-float">
+                        <div className="absolute inset-0 z-10 bg-white rounded-2xl border border-gray-100 shadow-2xl overflow-hidden flex flex-col">
                             {/* Window Header */}
                             <div className="px-4 py-3 border-b border-gray-100 flex items-center gap-2 bg-gray-50">
                                 <div className="flex gap-1.5">
@@ -69,11 +69,6 @@ const Hero = () => {
 
                             {/* Window Body - Simulated Interface */}
                             <div className="p-6 flex-1 flex flex-col gap-4 relative bg-slate-50/50">
-                                {/* Search Bar Simulation */}
-                                <div className="bg-white rounded-lg p-3 border border-gray-100 flex items-center gap-3 shadow-sm">
-                                    <div className="w-4 h-4 rounded-full border-2 border-primary border-t-transparent animate-spin" />
-                                    <div className="h-2 w-32 bg-gray-200 rounded animate-pulse" />
-                                </div>
 
                                 {/* Results Grid Simulation */}
                                 <div className="grid grid-cols-2 gap-3 mt-2">

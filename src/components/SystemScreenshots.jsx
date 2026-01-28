@@ -31,6 +31,31 @@ const SystemScreenshots = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
+    // Touch state for swipe detection
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            navigateLightbox('next');
+        } else if (isRightSwipe) {
+            navigateLightbox('prev');
+        }
+    };
+
     // Derived state for the modal
     const selectedImage = selectedImageIndex !== null ? screenshots[selectedImageIndex] : null;
 
@@ -63,7 +88,7 @@ const SystemScreenshots = () => {
     };
 
     const navigateLightbox = (direction, e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
         if (selectedImageIndex === null) return;
 
         if (direction === 'next') {
@@ -158,6 +183,9 @@ const SystemScreenshots = () => {
                 <div
                     className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
                     onClick={closeLightbox}
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
                 >
                     <div className="relative max-w-6xl w-full max-h-[95vh] flex flex-col items-center">
                         {/* Close Button */}
@@ -171,7 +199,7 @@ const SystemScreenshots = () => {
 
                         {/* Nav Prev */}
                         <button
-                            className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 text-white/70 hover:text-white hover:bg-white/10 p-2 rounded-full transition-colors"
+                            className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 text-white/90 bg-black/20 hover:bg-white/20 p-3 rounded-full transition-colors backdrop-blur-sm"
                             onClick={(e) => navigateLightbox('prev', e)}
                         >
                             <ChevronLeft size={48} />
@@ -186,7 +214,7 @@ const SystemScreenshots = () => {
 
                         {/* Nav Next */}
                         <button
-                            className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 text-white/70 hover:text-white hover:bg-white/10 p-2 rounded-full transition-colors"
+                            className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 text-white/90 bg-black/20 hover:bg-white/20 p-3 rounded-full transition-colors backdrop-blur-sm"
                             onClick={(e) => navigateLightbox('next', e)}
                         >
                             <ChevronRight size={48} />

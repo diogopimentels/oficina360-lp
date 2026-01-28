@@ -78,7 +78,7 @@ const Hero = () => {
                                 {/* Results Grid Simulation */}
                                 <div className="grid grid-cols-2 gap-3 mt-2">
                                     {[dicatecLogo, simploLogo, mecanicaLogo, doutorieLogo].map((logo, i) => (
-                                        <div key={i} className="bg-white rounded-lg p-4 border border-gray-100 flex flex-col gap-2 hover:border-primary/20 transition-colors shadow-sm items-center justify-center h-24">
+                                        <div key={i} className="bg-white rounded-lg p-2 border border-gray-100 flex flex-col gap-2 hover:border-primary/20 transition-colors shadow-sm items-center justify-center h-32">
                                             <img src={logo} alt="System Logo" className="h-full w-full object-contain" />
                                         </div>
                                     ))}

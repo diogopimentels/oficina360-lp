@@ -11,7 +11,7 @@ const BuySection = () => {
                 </div>
 
                 <div className="p-8">
-                    <h2 className="text-2xl font-extrabold mb-1 text-text-main uppercase tracking-tight">Pacote OFICINA 360</h2>
+                    <h2 className="text-2xl font-extrabold mb-1 text-text-main uppercase tracking-tight">Pendrive OFICINA 360</h2>
                     <p className="text-sm text-text-muted mb-6">Tudo o que sua oficina precisa.</p>
 
                     <div className="flex items-center justify-center gap-3 mb-4">

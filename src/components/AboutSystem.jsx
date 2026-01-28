@@ -34,12 +34,12 @@ const AboutSystem = () => {
                         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-10 -mt-10" />
 
                         <h3 className="text-xl md:text-2xl font-black text-text-main mb-4 uppercase text-primary">
-                            Um Sistema Só. <br />
-                            <span className="text-text-main">Várias Fontes Técnicas Integradas.</span>
+                            Um sistema só. <br />
+                            <span className="text-text-main">Várias fontes técnicas integradas.</span>
                         </h3>
 
                         <p className="text-text-muted mb-8 leading-relaxed">
-                            Reunimos diferentes bases de informação técnica automotiva em uma única interface simples de usar. Você pesquisa uma vez e encontra o que precisa para <strong>Linha Leve, Pesada (Diesel) e Máquinas Agrícolas</strong>.
+                            Reunimos as melhores bases de informações em uma única interface simples de usar. Você pesquisa uma vez e encontra o que precisa para <strong>Linha Leve, Pesada (Diesel) e Máquinas Agrícolas</strong>.
                         </p>
 
                         <ul className="space-y-4">
@@ -66,7 +66,7 @@ const AboutSystem = () => {
                                 onClick={() => document.getElementById('demonstracao')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-secondary text-white font-bold text-lg rounded-lg shadow-lg transition-all flex items-center justify-center gap-2"
                             >
-                                Ver como funciona na prática
+                                Ver como funciona
                             </button>
                         </div>
                     </div>

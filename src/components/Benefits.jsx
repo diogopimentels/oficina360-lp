@@ -5,14 +5,14 @@ const Benefits = () => {
     const features = [
         {
             icon: <DollarSign size={32} strokeWidth={1.5} />,
-            title: "Economia Real",
+            title: "Economia real",
             description: "Sem mensalidades. Tenha lucro livre dos custos fixos.",
             color: "text-green-600",
             bg: "bg-green-50"
         },
         {
             icon: <Zap size={32} strokeWidth={1.5} />,
-            title: "Diagnóstico Rápido",
+            title: "Diagnóstico rápido",
             description: "Menos tempo no PC, mais tempo consertando carros.",
             color: "text-amber-500",
             bg: "bg-amber-50"
@@ -20,20 +20,13 @@ const Benefits = () => {
         {
             icon: <Layers size={32} strokeWidth={1.5} />,
             title: "Centralizado",
-            description: "Simplo, Dicatec e outros manuais em um único local.",
+            description: "Simplo, Dicatec, Mecânica2000 e Doutor-IE em um único lugar.",
             color: "text-blue-600",
             bg: "bg-blue-50"
         },
         {
-            icon: <HardDrive size={32} strokeWidth={1.5} />,
-            title: "Plug & Play",
-            description: "Nós instalamos, você usa. Sem configurações complexas.",
-            color: "text-purple-600",
-            bg: "bg-purple-50"
-        },
-        {
             icon: <MessageCircle size={32} strokeWidth={1.5} />,
-            title: "Suporte Humano",
+            title: "Suporte humano",
             description: "Fale com técnicos reais no WhatsApp, não com robôs.",
             color: "text-pink-500",
             bg: "bg-pink-50"
@@ -45,7 +38,7 @@ const Benefits = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-extrabold text-text-main mb-6 leading-tight">
-                        Feito para a <span className="text-primary">Realidade da Oficina</span>
+                        Feito para a <span className="text-primary">realidade da oficina</span>
                     </h2>
                     <p className="text-lg text-text-muted leading-relaxed">
                         Sabemos que oficina é correria. Por isso criamos um sistema direto ao ponto,

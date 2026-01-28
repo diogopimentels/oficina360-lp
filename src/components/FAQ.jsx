@@ -3,11 +3,11 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const faqs = [
     {
-        question: "Quanto custa o sistema?",
-        answer: "O valor de referência do sistema é R$ 500,00. Hoje estamos liberando por R$ 400,00 no cartão de crédito ou R$ 380,00 no Pix."
+        question: "Quais módulos eu vou receber?",
+        answer: "Você receberá informações completas da parte de motor, elétrica, injeção, etc. Tudo 100% offline e completo pronto para atender a demanda da sua oficina sem depender de terceiros."
     },
     {
-        question: "Dá pra parcelar?",
+        question: "Consigo parcelar?",
         answer: "Sim, no cartão de crédito é possível parcelar. As condições exatas podem ser combinadas no atendimento."
     },
     {
@@ -32,15 +32,15 @@ const faqs = [
     },
     {
         question: "Precisa de internet para funcionar?",
-        answer: "Grande parte do sistema pode ser usada offline após a instalação, mas algumas funções podem depender de conexão."
+        answer: "Não, o sistema é 100% offline. Não precisa de internet para funcionar."
     },
     {
         question: "Funciona em qualquer computador?",
-        answer: "Funciona em computadores compatíveis com os requisitos mínimos. Se tiver dúvida, é só chamar que verificamos com você."
+        answer: "Sim, funciona em qualquer computador Windows e também em aparelhos android utilizando cabo OTG."
     },
     {
         question: "Se eu tiver dúvida depois da compra, tenho suporte?",
-        answer: "Sim, você pode entrar em contato sempre que precisar de ajuda relacionada ao uso do sistema."
+        answer: "Sim, você pode entrar em contato sempre que precisar de ajuda relacionada ao uso do sistema. Estamos aqui para ajudar!"
     }
 ];
 

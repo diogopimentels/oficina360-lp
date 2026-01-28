@@ -25,7 +25,7 @@ const Hero = () => {
                     </h1>
 
                     <p className="text-text-muted text-lg md:text-xl mb-8 leading-relaxed max-w-lg mx-auto md:mx-0 font-light">
-                        Encontre esquemas elétricos, informações técnicas e dados de diagnóstico em segundos — sem precisar abrir vários programas ou perder tempo procurando.
+                        Encontre esquemas elétricos, informações técnicas e dados de diagnóstico em segundos sem precisar pagar por vários programas ou perder tempo procurando.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
@@ -33,18 +33,18 @@ const Hero = () => {
                             onClick={() => document.getElementById('demonstracao')?.scrollIntoView({ behavior: 'smooth' })}
                             className="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-secondary text-white rounded-lg font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
                         >
-                            Quero ver o sistema funcionando
+                            Quero saber mais
                         </button>
                     </div>
 
                     <div className="mt-8 flex items-center justify-center md:justify-start gap-6 text-sm text-text-muted font-medium">
                         <div className="flex items-center gap-2">
                             <CheckCircle2 size={18} className="text-primary" />
-                            <span>Sem Mensalidades</span>
+                            <span>Pagamento único</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <CheckCircle2 size={18} className="text-primary" />
-                            <span>Instalação Grátis</span>
+                            <span>Pendrive de 64 GB incluso</span>
                         </div>
                     </div>
                 </div>

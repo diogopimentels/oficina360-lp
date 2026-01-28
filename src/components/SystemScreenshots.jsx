@@ -16,7 +16,7 @@ import img10 from '../assets/carrossel/screenshot-10.png';
 const screenshots = [
     { src: img1, label: '1. Selecione o módulo desejado (Simplo, Dicatec, etc)' },
     { src: img2, label: '2. Escolha a Montadora e o Veículo' },
-    { src: img3, label: '3. Acesse o Esquema Elétrico exato' },
+    { src: img3, label: '3. Acesse o que precisa' },
     { src: img4, label: '4. Consulte valores de teste e sensores' },
     { src: img5, label: '5. Verifique torques de aperto do motor' },
     { src: img6, label: '6. Localize caixas e diagramas de fusíveis' },

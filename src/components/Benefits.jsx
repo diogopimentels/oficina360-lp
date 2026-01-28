@@ -1,60 +1,72 @@
 import React from 'react';
-import { DollarSign, Clock, Layers, Zap, Headset } from 'lucide-react';
-
-const benefits = [
-    {
-        icon: <DollarSign size={24} />,
-        title: "Economia Real",
-        text: "Sem mensalidades. Tenha lucro livre dos custos fixos."
-    },
-    {
-        icon: <Clock size={24} />,
-        title: "Diagnóstico Rápido",
-        text: "Menos tempo no PC, mais tempo consertando carros."
-    },
-    {
-        icon: <Layers size={24} />,
-        title: "Centralizado",
-        text: "Simplo, Dicatec e outros manuais em um único local."
-    },
-    {
-        icon: <Zap size={24} />,
-        title: "Plug & Play",
-        text: "Nós instalamos, você usa. Sem configurações complexas."
-    },
-    {
-        icon: <Headset size={24} />,
-        title: "Suporte Humano",
-        text: "Fale com técnicos reais no WhatsApp, não com robôs."
-    }
-];
+import { DollarSign, Zap, Layers, HardDrive, MessageCircle } from 'lucide-react';
 
 const Benefits = () => {
-    return (
-        <section id="beneficios" className="py-24 bg-white px-6 border-b border-border">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                    <div className="max-w-2xl">
-                        <h2 className="text-3xl font-bold mb-4 text-text-main">
-                            Feito para a Realidade da Oficina
-                        </h2>
-                        <p className="text-text-muted">
-                            Sabemos que oficina é correria. Por isso criamos um sistema direto ao ponto, sem frescuras visuais.
-                        </p>
-                    </div>
+    const features = [
+        {
+            icon: <DollarSign size={32} strokeWidth={1.5} />,
+            title: "Economia Real",
+            description: "Sem mensalidades. Tenha lucro livre dos custos fixos.",
+            color: "text-green-600",
+            bg: "bg-green-50"
+        },
+        {
+            icon: <Zap size={32} strokeWidth={1.5} />,
+            title: "Diagnóstico Rápido",
+            description: "Menos tempo no PC, mais tempo consertando carros.",
+            color: "text-amber-500",
+            bg: "bg-amber-50"
+        },
+        {
+            icon: <Layers size={32} strokeWidth={1.5} />,
+            title: "Centralizado",
+            description: "Simplo, Dicatec e outros manuais em um único local.",
+            color: "text-blue-600",
+            bg: "bg-blue-50"
+        },
+        {
+            icon: <HardDrive size={32} strokeWidth={1.5} />,
+            title: "Plug & Play",
+            description: "Nós instalamos, você usa. Sem configurações complexas.",
+            color: "text-purple-600",
+            bg: "bg-purple-50"
+        },
+        {
+            icon: <MessageCircle size={32} strokeWidth={1.5} />,
+            title: "Suporte Humano",
+            description: "Fale com técnicos reais no WhatsApp, não com robôs.",
+            color: "text-pink-500",
+            bg: "bg-pink-50"
+        }
+    ];
 
-                    <div className="hidden md:block h-px flex-1 bg-gray-200 mx-8 mb-2" />
+    return (
+        <section id="vantagens" className="py-24 bg-white">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-text-main mb-6 leading-tight">
+                        Feito para a <span className="text-primary">Realidade da Oficina</span>
+                    </h2>
+                    <p className="text-lg text-text-muted leading-relaxed">
+                        Sabemos que oficina é correria. Por isso criamos um sistema direto ao ponto,
+                        <span className="font-semibold text-text-main"> sem frescuras visuais</span> e focado em resultado.
+                    </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-                    {benefits.map((benefit, idx) => (
-                        <div key={idx} className="bg-transparent border-l border-gray-200 pl-6 py-2 hover:border-primary transition-colors group">
-                            <div className="text-text-muted/70 mb-4 group-hover:text-primary transition-colors">
-                                {benefit.icon}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                    {features.map((feature, index) => (
+                        <div
+                            key={index}
+                            className="group p-6 rounded-2xl bg-bg-base border border-transparent hover:border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center"
+                        >
+                            <div className={`w-16 h-16 rounded-2xl ${feature.bg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                <div className={feature.color}>
+                                    {feature.icon}
+                                </div>
                             </div>
-                            <h3 className="text-lg font-bold mb-2 text-text-main">{benefit.title}</h3>
+                            <h3 className="text-lg font-bold text-text-main mb-3">{feature.title}</h3>
                             <p className="text-sm text-text-muted leading-relaxed">
-                                {benefit.text}
+                                {feature.description}
                             </p>
                         </div>
                     ))}

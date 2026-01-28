@@ -29,6 +29,7 @@ const screenshots = [
 const SystemScreenshots = () => {
     const scrollRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -69,16 +70,17 @@ const SystemScreenshots = () => {
                         {screenshots.map((item, idx) => (
                             <div
                                 key={idx}
-                                className="snap-center shrink-0 w-[85vw] md:w-[800px] relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-white"
+                                className="snap-center shrink-0 w-[85vw] md:w-[800px] relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-white cursor-pointer transition-transform active:scale-[0.98]"
+                                onClick={() => setSelectedImage(item)}
                             >
                                 <img
                                     src={item.src}
                                     alt={`Tela: ${item.label}`}
                                     loading="lazy"
-                                    className="w-full h-auto object-cover block"
+                                    className="w-full h-auto object-cover block pointer-events-none"
                                 />
                                 <div className="absolute bottom-0 left-0 w-full bg-black/70 backdrop-blur-sm text-white py-3 px-4 text-sm font-medium">
-                                    {item.label}
+                                    {item.label} <span className="text-[10px] opacity-70 ml-2">(Toque para ampliar)</span>
                                 </div>
                             </div>
                         ))}
@@ -128,6 +130,35 @@ const SystemScreenshots = () => {
                     </button>
                 </div>
             </div>
+
+            {/* Lightbox Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <div className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
+                        <button
+                            className="absolute -top-12 right-0 text-white/80 hover:text-white"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <span className="sr-only">Fechar</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+
+                        <img
+                            src={selectedImage.src}
+                            alt={selectedImage.label}
+                            className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+                        />
+
+                        <div className="mt-4 text-white font-medium text-lg text-center" onClick={(e) => e.stopPropagation()}>
+                            {selectedImage.label}
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };

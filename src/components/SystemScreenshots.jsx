@@ -14,22 +14,25 @@ import img9 from '../assets/carrossel/screenshot-09.png';
 import img10 from '../assets/carrossel/screenshot-10.png';
 
 const screenshots = [
-    { src: img1, label: 'Menu Principal Intuitivo' },
-    { src: img2, label: 'Busca por Veículo e Montadora' },
-    { src: img3, label: 'Esquemas Elétricos Detalhados' },
-    { src: img4, label: 'Diagnóstico de Injeção Eletrônica' },
-    { src: img5, label: 'Tabela de Torques e Apertos' },
-    { src: img6, label: 'Diagramas de Fusíveis' },
-    { src: img7, label: 'Correias e Correntes de Comando' },
-    { src: img8, label: 'Pinagem de Módulos' },
-    { src: img9, label: 'Dados Técnicos de Ar Condicionado' },
-    { src: img10, label: 'Manuais de Serviço Completos' }
+    { src: img1, label: '1. Selecione o módulo desejado (Simplo, Dicatec, etc)' },
+    { src: img2, label: '2. Escolha a Montadora e o Veículo' },
+    { src: img3, label: '3. Acesse o Esquema Elétrico exato' },
+    { src: img4, label: '4. Consulte valores de teste e sensores' },
+    { src: img5, label: '5. Verifique torques de aperto do motor' },
+    { src: img6, label: '6. Localize caixas e diagramas de fusíveis' },
+    { src: img7, label: '7. Veja o ponto de correias e correntes' },
+    { src: img8, label: '8. Confira a pinagem dos módulos (ECU)' },
+    { src: img9, label: '9. Acesse dados de Ar Condicionado' },
+    { src: img10, label: '10. Tenha manuais de serviço completos' }
 ];
 
 const SystemScreenshots = () => {
     const scrollRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+    // Derived state for the modal
+    const selectedImage = selectedImageIndex !== null ? screenshots[selectedImageIndex] : null;
 
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -51,12 +54,31 @@ const SystemScreenshots = () => {
         }
     };
 
+    const openLightbox = (index) => {
+        setSelectedImageIndex(index);
+    };
+
+    const closeLightbox = () => {
+        setSelectedImageIndex(null);
+    };
+
+    const navigateLightbox = (direction, e) => {
+        e.stopPropagation();
+        if (selectedImageIndex === null) return;
+
+        if (direction === 'next') {
+            setSelectedImageIndex((prev) => (prev + 1) % screenshots.length);
+        } else {
+            setSelectedImageIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+        }
+    };
+
     return (
         <section id="demonstracao" className="py-20 bg-bg-base px-0 md:px-6 text-center overflow-hidden">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-5xl font-bold mb-8 text-text-main px-6">Veja o Sistema <span className="text-primary">Por Dentro</span></h2>
                 <p className="text-text-muted mb-12 max-w-2xl mx-auto px-6">
-                    Navegue pelas telas reais do sistema. Simples, direto e organizado.
+                    Siga o passo a passo e veja como é fácil encontrar a informação que você precisa.
                 </p>
 
                 <div className="relative group">
@@ -71,7 +93,7 @@ const SystemScreenshots = () => {
                             <div
                                 key={idx}
                                 className="snap-center shrink-0 w-[85vw] md:w-[800px] relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 bg-white cursor-pointer transition-transform active:scale-[0.98]"
-                                onClick={() => setSelectedImage(item)}
+                                onClick={() => openLightbox(idx)}
                             >
                                 <img
                                     src={item.src}
@@ -80,7 +102,7 @@ const SystemScreenshots = () => {
                                     className="w-full h-auto object-cover block pointer-events-none"
                                 />
                                 <div className="absolute bottom-0 left-0 w-full bg-black/70 backdrop-blur-sm text-white py-3 px-4 text-sm font-medium">
-                                    {item.label} <span className="text-[10px] opacity-70 ml-2">(Toque para ampliar)</span>
+                                    {item.label} <span className="text-[10px] opacity-70 ml-2 md:hidden">(Toque para ampliar)</span>
                                 </div>
                             </div>
                         ))}
@@ -134,27 +156,47 @@ const SystemScreenshots = () => {
             {/* Lightbox Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
-                    onClick={() => setSelectedImage(null)}
+                    className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
+                    onClick={closeLightbox}
                 >
-                    <div className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center">
+                    <div className="relative max-w-6xl w-full max-h-[95vh] flex flex-col items-center">
+                        {/* Close Button */}
                         <button
-                            className="absolute -top-12 right-0 text-white/80 hover:text-white"
-                            onClick={() => setSelectedImage(null)}
+                            className="absolute -top-12 right-0 text-white/80 hover:text-white p-2"
+                            onClick={closeLightbox}
                         >
                             <span className="sr-only">Fechar</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                         </button>
 
+                        {/* Nav Prev */}
+                        <button
+                            className="absolute left-0 md:-left-16 top-1/2 -translate-y-1/2 text-white/70 hover:text-white hover:bg-white/10 p-2 rounded-full transition-colors"
+                            onClick={(e) => navigateLightbox('prev', e)}
+                        >
+                            <ChevronLeft size={48} />
+                        </button>
+
                         <img
                             src={selectedImage.src}
                             alt={selectedImage.label}
-                            className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
-                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+                            className="w-full h-auto max-h-[80vh] object-contain rounded-lg shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
                         />
 
-                        <div className="mt-4 text-white font-medium text-lg text-center" onClick={(e) => e.stopPropagation()}>
+                        {/* Nav Next */}
+                        <button
+                            className="absolute right-0 md:-right-16 top-1/2 -translate-y-1/2 text-white/70 hover:text-white hover:bg-white/10 p-2 rounded-full transition-colors"
+                            onClick={(e) => navigateLightbox('next', e)}
+                        >
+                            <ChevronRight size={48} />
+                        </button>
+
+                        <div className="mt-6 text-white font-medium text-lg md:text-xl text-center px-4" onClick={(e) => e.stopPropagation()}>
                             {selectedImage.label}
+                            <div className="text-sm text-gray-400 font-normal mt-1">
+                                {selectedImageIndex + 1} de {screenshots.length}
+                            </div>
                         </div>
                     </div>
                 </div>

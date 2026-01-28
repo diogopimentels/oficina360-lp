@@ -2,16 +2,16 @@ import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Importing images directly to ensure they are bundled
-import img1 from '../assets/carrossel/Captura de tela 2026-01-27 204520.png';
-import img2 from '../assets/carrossel/Captura de tela 2026-01-27 204532.png';
-import img3 from '../assets/carrossel/Captura de tela 2026-01-27 204546.png';
-import img4 from '../assets/carrossel/Captura de tela 2026-01-27 204559.png';
-import img5 from '../assets/carrossel/Captura de tela 2026-01-27 204621.png';
-import img6 from '../assets/carrossel/Captura de tela 2026-01-27 204646.png';
-import img7 from '../assets/carrossel/Captura de tela 2026-01-27 204702.png';
-import img8 from '../assets/carrossel/Captura de tela 2026-01-27 204715.png';
-import img9 from '../assets/carrossel/Captura de tela 2026-01-27 204742.png';
-import img10 from '../assets/carrossel/Captura de tela 2026-01-27 204800.png';
+import img1 from '../assets/carrossel/screenshot-01.png';
+import img2 from '../assets/carrossel/screenshot-02.png';
+import img3 from '../assets/carrossel/screenshot-03.png';
+import img4 from '../assets/carrossel/screenshot-04.png';
+import img5 from '../assets/carrossel/screenshot-05.png';
+import img6 from '../assets/carrossel/screenshot-06.png';
+import img7 from '../assets/carrossel/screenshot-07.png';
+import img8 from '../assets/carrossel/screenshot-08.png';
+import img9 from '../assets/carrossel/screenshot-09.png';
+import img10 from '../assets/carrossel/screenshot-10.png';
 
 const screenshots = [
     { src: img1, label: 'Menu Principal Intuitivo' },
